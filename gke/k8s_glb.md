@@ -84,9 +84,26 @@ GLB并不支持http => https的重定向，而且有一些自定义的7层规则
 
    ADDRESS已经绑定上了分配给我们的全局IP，这时在页面上就能看到负载均衡器的配置了
 
-   
+   检查
 
-http => https跳转实现
+   ![图片1](https://raw.githubusercontent.com/x2x4com/docs-k8s/master/gke/img/glb-0.jpg)
+
+   当有流量时候可以看到
+
+   ![图片2](https://raw.githubusercontent.com/x2x4com/docs-k8s/master/gke/img/glb-1.jpg)
+
+
+## http => https跳转实现
+
+按照上面的配置，ingress到后端是走的80，后端的内部l7proxy怎么才能知道用户是通过前端80访问过来还是443访问过来的呢？
+
+查了不少资料，发现GLB在代理的时会增加一个header, x-forwarded-proto 通过这个值是http还是https可以知道用户是通过哪个前端进来的，于是我就在每个proxy_pass之前进行了判断，加入
+
+```
+if ($http_x_forwarded_proto = 'http') {
+   return 301 https://$host$request_uri;
+}
+```
 
 ## 参考
 

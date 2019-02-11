@@ -93,6 +93,8 @@ app_blockscanner
 
 3. 配置Webhook脚本
 
+   创建cfg.py文件，如下内容
+
    {% gist id="https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea" %}{% endgist %}
 
 
@@ -103,6 +105,10 @@ app_blockscanner
    screen -AdmS mirror bin/python3 src/UpdateGitMirror.py
    ```
 
-5. 配置GCP触发器
+5. 添加Gitee的Webhook
+
+   TODO
+
+6. 配置GCP触发器
 
 ... TODO
