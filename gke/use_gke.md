@@ -189,7 +189,8 @@ app_blockscanner
 
 3. 配置Webhook脚本
 
-   <script src="https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea.js"></script>
+   {% gist id="https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea" %}{% endgist %}
+
 
 4. 启动
 
