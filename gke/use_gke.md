@@ -98,7 +98,7 @@ NAME        LOCATION           MASTER_VERSION  MASTER_IP       MACHINE_TYPE   NO
 cluster-1   asia-northeast1-a  1.9.3-gke.0     **.***.***.***  n1-standard-1  1.9.3-gke.0   3          RUNNING
 ```
 
-绑定kubectl控制台
+## 绑定kubectl控制台
 
 ```
 $ gcloud container clusters get-credentials cluster-1 --zone asia-northeast1-a
