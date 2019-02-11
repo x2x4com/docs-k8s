@@ -11,7 +11,6 @@
     * [绑定kubectl](gke/use_gke.md#绑定kubectl控制台)
   * [镜像自动构建](gke/auto_build.md)
   * [资源池升级](gke/update_node.md)
-
   * [使用全局负载均衡器](gke/k8s_glb.md)
     * [配置](gke/k8s_glb.md#配置)
     * [http重定向](gke/k8s_glb.md#http重定向跳转)
