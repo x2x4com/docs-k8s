@@ -23,7 +23,7 @@
    ```
    $ gcloud container node-pools create n1-standard-2 --cluster cluster-1 --zone asia-northeast1-a --machine-type=n1-standard-2 --num-nodes=2
    Creating node pool n1-standard-2...done.
-   Created [https://container.googleapis.com/v1/projects/adept-sentinel-198019/zones/asia-northeast1-a/clusters/cluster-1/nodePools/n1-standard-2].
+   Created [https://container.googleapis.com/v1/projects/demo-1/zones/asia-northeast1-a/clusters/cluster-1/nodePools/n1-standard-2].
    NAME           MACHINE_TYPE   DISK_SIZE_GB  NODE_VERSION
    n1-standard-2  n1-standard-2  100           1.9.3-gke.0
    ```
@@ -177,7 +177,7 @@
    Do you want to continue (Y/n)?  y
 
    Deleting node pool default-pool...done.
-   Deleted [https://container.googleapis.com/v1/projects/adept-sentinel-198019/zones/asia-northeast1-a/clusters/cluster-1/nodePools/default-pool].   
+   Deleted [https://container.googleapis.com/v1/projects/demo-1/zones/asia-northeast1-a/clusters/cluster-1/nodePools/default-pool].   
     ```
 
    查看
