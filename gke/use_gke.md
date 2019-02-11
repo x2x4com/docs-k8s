@@ -38,7 +38,7 @@
 4. 获得登陆授权
 
    ```
-   $ gcloud auth application-default login
+   gcloud auth application-default login
    ```
 
    输入之后会跳出浏览器，输入你的GCP用户名密码，点击授权即可
@@ -90,7 +90,7 @@
 gcloud container --project "demo-1" clusters create "cluster-1" --zone "asia-northeast1-a" --username "admin" --cluster-version "1.9.3-gke.0" --machine-type "n1-standard-1" --image-type "COS" --disk-size "100" --scopes "https://www.googleapis.com/auth/compute","https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "2" --network "default" --enable-cloud-logging --enable-cloud-monitoring --subnetwork "default" --enable-autoupgrade
 ```
 
-检查
+检查集群创建情况
 
 ```
 $ gcloud container clusters list
@@ -104,6 +104,15 @@ cluster-1   asia-northeast1-a  1.9.3-gke.0     **.***.***.***  n1-standard-1  1.
 $ gcloud container clusters get-credentials cluster-1 --zone asia-northeast1-a
 Fetching cluster endpoint and auth data.
 kubeconfig entry generated for cluster-1.
+```
+
+检查节点情况
+
+```
+$ kubectl get nodes
+NAME                                        STATUS    ROLES     AGE       VERSION
+gke-cluster-1-default-pool-ddf96b65-3f5f    Ready     <none>    11m       v1.9.3-gke.0
+gke-cluster-1-default-pool-ddf96b65-ggg3    Ready     <none>    11m       v1.9.3-gke.0
 ```
 
 
@@ -146,9 +155,16 @@ GCP只支持Bitbucket与Github，当用户使用其他Git仓库(如码云Gitee�
 项目的名称
 app_blockscanner
 
-脚本使用Python3.4+，请自行安装
+脚本使用Python3.4+，请自行安装。
 
-1. webhook接收机上
+请在app_blockscanner库里添加Webhook接收机的deploy key。
+
+1. webhook接收机上创建镜像
+   ```
+   [ ! -d "/data/git" ] && sudo mkdir -p /data/git
+   cd /data/git
+   git clone --mirror git@gitee.com:crop1/app_blockscanner.git
+   ```
 
 2. 配置Webhook接收脚本环境
    1. 创建venv环境
@@ -170,3 +186,8 @@ app_blockscanner
       cd src
       pip install -r requirements.txt
       ```
+
+3. 配置Webhook脚本
+   https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea
+
+   
