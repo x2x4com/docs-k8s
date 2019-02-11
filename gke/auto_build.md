@@ -96,9 +96,13 @@ app_blockscanner
    {% gist id="https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea" %}{% endgist %}
 
 
-4. 启动
+4. 启动Webhook接收器
 
    ```
    cd $HOME/webhook
    screen -AdmS mirror bin/python3 src/UpdateGitMirror.py
    ```
+
+5. 配置GCP触发器
+
+... TODO
