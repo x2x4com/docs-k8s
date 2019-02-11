@@ -99,7 +99,8 @@
       gke-cluster-1-default-pool-ddf96b65-drpv    Ready,SchedulingDisabled   <none>    10d       v1.9.3-gke.0
       gke-cluster-1-default-pool-ddf96b65-ggg3    Ready,SchedulingDisabled   <none>    13d       v1.9.3-gke.0
       gke-cluster-1-n1-standard-2-92d50459-tbv0   Ready                      <none>    55m       v1.9.3-gke.0
-      gke-cluster-1-n1-standard-2-92d50459-tlkz   Ready                      <none>    55m       v1.9.3-gke.0      ```
+      gke-cluster-1-n1-standard-2-92d50459-tlkz   Ready                      <none>    55m       v1.9.3-gke.0      
+      ```
 
    - Drain
 

@@ -14,7 +14,7 @@
 我使用Python3.6.2，具体的安装部署请[参考这里](https://cloud.google.com/sdk/docs/)
 
 
-## 安装需要的组件
+## 安装组件
 
 1. 更新gcloud工具到最新版本
 

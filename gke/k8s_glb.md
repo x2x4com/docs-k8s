@@ -93,7 +93,7 @@ GLB并不支持http => https的重定向，而且有一些自定义的7层规则
    ![图片2](https://raw.githubusercontent.com/x2x4com/docs-k8s/master/gke/img/glb-1.jpg)
 
 
-## http => https跳转实现
+## http重定向跳转
 
 按照上面的配置，ingress到后端是走的80，后端的内部l7proxy怎么才能知道用户是通过前端80访问过来还是443访问过来的呢？
 
