@@ -1,0 +1,104 @@
+# GCP自动触发构建
+
+## 文档版本
+序号 | 内容 | 更新人 | 更新日期 | 版本
+---| --- | --- | --- | ---
+1 | 文档补全 | 许向 | 2019-2-11 | 0.1
+
+
+## 镜像自动构建
+
+GCP的云端触发器只支持3类的来源
+
+- 云端源代码库(Cloud Source Repositories)
+- Bitbucket
+- Github
+
+实际上无论是Bitbucket与Github都是通过镜像到云端源代码库来实现触发的
+
+Bitbucket与Github的构建集成比较容易，根据页面提示一步一步就可以了
+
+**Bitbucket集成私有项目时候需要注意，授权的用户需要拥有admin权限，否则授权后私有库在gcp会看不到**
+
+接下来把主要介绍自定义Git库与GCP集成
+
+
+### Gitee(码云)与GCP触发器集成
+
+GCP只支持Bitbucket与Github，当用户使用其他Git仓库(如码云Gitee，或者自建的Gitlab)时就比较麻烦了
+
+(Gitlab官方支持直接镜像到Bitbucket，可以直接集成)
+
+我这里主要介绍使用Gitee的仓库来与GCP触发器集成
+
+核心的思路就是曲线救国，使用Webhook将Gitee的库镜像到Bitbucket私有库，然后再授权给GCP触发器
+
+
+使用到的工具
+
+- Gitee账号
+- Bitbucket账号
+- GCP账号
+- 具有公网地址的主机一台(ddns也OK)
+- Webhook接收脚本，[这里可以获取到](https://github.com/x2x4com/gitee_trigger)
+
+项目的名称
+app_blockscanner
+
+脚本使用Python3.4+，请自行安装。
+
+请在app_blockscanner库里添加Webhook接收机的deploy key。
+
+1. webhook接收机上创建镜像
+   ```
+   [ ! -d "/data/git" ] && sudo mkdir -p /data/git
+   cd /data/git
+   git clone --mirror git@gitee.com:crop1/app_blockscanner.git
+   ```
+
+2. 配置Bitbucket
+
+   1. 创建一个新的repo
+
+   - Owner: 你自己
+   - Project: x2x4-demo-crop1
+   - Repository name: app_blockscanner
+   - Access level: private
+   - Inculde a README? No
+   - Version control: Git
+
+   2. 将Webhook接收机上的公钥添加到Bitbucket账号的SSH Keys中
+
+2. 配置Webhook接收脚本环境
+   1. 创建venv环境
+      ```
+      cd $HOME
+      python3 -m venv webhook
+      ```
+   2. 下载webhook接收脚本
+      ```
+      cd webhook
+      git clone "https://github.com/x2x4com/gitee_trigger.git" src
+      ```
+   3. 激活venv环境
+      ```
+      . bin/activate
+      ```
+   4. 安装依赖文件
+      ```
+      cd src
+      pip install -r requirements.txt
+      ```
+
+3. 配置Webhook脚本
+
+   <div>
+   <script src="https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea.js"></script>
+   </div>
+
+4. 启动
+
+   ```
+   cd $HOME/webhook
+   screen -AdmS mirror bin/python3 src/UpdateGitMirror.py
+   ```
