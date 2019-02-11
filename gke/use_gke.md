@@ -188,6 +188,12 @@ app_blockscanner
       ```
 
 3. 配置Webhook脚本
+
    https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea
 
-   
+4. 启动
+
+   ```
+   cd $HOME/webhook
+   screen -AdmS mirror bin/python3 src/UpdateGitMirror.py
+   ```
