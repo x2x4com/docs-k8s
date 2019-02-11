@@ -3,7 +3,8 @@
 ## 文档版本
 序号 | 内容 | 更新人 | 更新日期 | 版本
 ---| --- | --- | --- | ---
-1 | 文档补全 | 许向 | 2019-2-11 | 0.1
+1 | 初始版本 | 许向 | 2019-1-15 | 0.1
+2 | 文档补全 | 许向 | 2019-2-11 | 0.2
 
 
 ## 镜像自动构建
@@ -60,12 +61,12 @@ app_blockscanner
 
    1. 创建一个新的repo
 
-   - Owner: 你自己
-   - Project: x2x4-demo-crop1
-   - Repository name: app_blockscanner
-   - Access level: private
-   - Inculde a README? No
-   - Version control: Git
+      - Owner: 你自己
+      - Project: x2x4-demo-crop1
+      - Repository name: app_blockscanner
+      - Access level: private
+      - Inculde a README? No
+      - Version control: Git
 
    2. 将Webhook接收机上的公钥添加到Bitbucket账号的SSH Keys中
 
@@ -92,9 +93,8 @@ app_blockscanner
 
 3. 配置Webhook脚本
 
-   <div>
-   <script src="https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea.js"></script>
-   </div>
+   {% gist id="https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea" %}{% endgist %}
+
 
 4. 启动
 

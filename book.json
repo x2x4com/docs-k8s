@@ -1,0 +1,9 @@
+{
+    "author": "x2x4 <x2x4com@gmail.com>",
+    "description": "K8S使用记录",
+    "plugins": [
+        "gist",
+        "multipart",
+        "toggle-chapters"
+    ]
+}

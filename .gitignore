@@ -108,3 +108,4 @@ tmp/
 .idea
 
 _book/
+node_modules/
