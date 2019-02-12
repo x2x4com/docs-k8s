@@ -7,8 +7,8 @@
 2 | 文档补全 | 许向 | 2019-2-11 | 0.2
 
 
-## 资源池扩容[^migrating-node-pool]
-在某些情况下资源节点的配置并不能满足实际应用需求，比如某个应用需要2颗CPU，但是物理节点只有1颗CPU。GCP的资源升级只能在同级别的主机资源上，也就是说1Core的机器再扩容也是1Core * n，这个时候只能通过升级底层资源池的配置来达到扩容的需求
+## 资源池扩容[^1]
+在某些情况下资源节点的配置并不能满足实际应用需求，比如某个应用需要2颗CPU，但是物理节点只有1颗CPU。GCP的扩容只能在同级别的主机资源上，也就是说1Core的机器再扩容也是1Core * n，这个时候只能通过升级底层资源池的配置来达到扩容的需求
 
 1. 显示当前pool
 
@@ -192,4 +192,4 @@
 
 ## 参考文档
 
-[^migrating-node-pool]: [migrating-node-pool](https://cloud.google.com/kubernetes-engine/docs/tutorials/migrating-node-pool)
+[^1]: [migrating-node-pool](https://cloud.google.com/kubernetes-engine/docs/tutorials/migrating-node-pool)

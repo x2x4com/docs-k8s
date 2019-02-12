@@ -97,6 +97,7 @@ app_blockscanner
 
    {% gist id="https://gist.github.com/x2x4com/b64b6288b4708dfc24f1fea2524c04ea" %}{% endgist %}
 
+   UpdateGitMirror脚本只用到了配置文件中的global_password
 
 4. 启动Webhook接收器
 
@@ -107,8 +108,47 @@ app_blockscanner
 
 5. 添加Gitee的Webhook
 
-   TODO
+   在项目或者Gitee企业后台添加Webhook
+
+   URL:  http://your-ip:10080/oschina/update.json
+   密码:  gps_1
+   选择事件: Push, Pull Request, Tag Push
+
+6. 检查配置
+
+   提交代码到git@gitee.com:crop1/app_blockscanner，查看bitbucket是不是同步了
 
 6. 配置GCP触发器
 
-... TODO
+   确认同步之后就可以配置GCP的触发器
+
+   点击Cloud Build，创建触发器，选择Bitbucket
+
+   ![cb-1](https://github.com/x2x4com/docs-k8s/raw/master/gke/img/cloud-build-1.jpg)
+
+   在授权页面填入Bitbucket账号
+
+   ![cb-2](https://github.com/x2x4com/docs-k8s/raw/master/gke/img/cloud-build-2.jpg)
+
+   选择要同步的代码，选择app_blockscanner
+
+   ![cb-3](https://github.com/x2x4com/docs-k8s/raw/master/gke/img/cloud-build-3.jpg)
+
+   接下来的页面内填写信息
+
+   - 名称: 触发器的名称
+   - 触发器类型: 分支
+   - 分支: master
+   - 构建配置: Dockerfile
+   - Dockerfile目录: /(Dockerfile存放在项目源码的/目录处)
+   - 映像名称: asia.gcr.io/demo-1/crop1/master/app_blockscanner:$COMMIT_SHA(可以自行定义)
+
+   保存即可
+
+   ![cb-4](https://github.com/x2x4com/docs-k8s/raw/master/gke/img/cloud-build-4.jpg)
+
+   一个代码库可以针对不同分支建不同的触发器策略，完成如下
+
+   ![cb-5](https://github.com/x2x4com/docs-k8s/raw/master/gke/img/cloud-build-5.jpg)
+
+   最后就可以点击运行触发器来测试了
