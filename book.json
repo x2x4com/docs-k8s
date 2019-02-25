@@ -1,6 +1,15 @@
 {
+    "title": "K8S使用",
     "author": "x2x4 <x2x4com@gmail.com>",
-    "description": "K8S使用记录",
+    "description": "K8S的一些使用记录",
+    "output.name": "site",
+    "language": "zh-hans",
+    "root": ".",
+    "links": {
+        "sidebar": {
+            "Index": "https://docs.x2x4.me"
+        }
+    },
     "plugins": [
         "gist",
         "multipart",
