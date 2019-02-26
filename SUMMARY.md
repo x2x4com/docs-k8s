@@ -2,7 +2,7 @@
 
 * [关于此文档](README.md)
 
-## Google Cloud Kubernetes
+## 谷歌云
 * [GKE](gke/README.md)
   * [创建K8S](gke/create_gke.md)
     * [安装gcloud-sdk](gke/create_gke.md#安装gcloud-sdk)
@@ -15,9 +15,8 @@
     * [配置](gke/k8s_glb.md#配置)
     * [http重定向](gke/k8s_glb.md#http重定向跳转)
 
-## Elastic Container Service for Kubernetes(Amazon EKS)
+## 亚马逊
 * [EKS](eks/README.md)
 
-## Aliyun Kubernetes
+## 阿里云
 * [Ali Kubernetes](ali-kube/README.md)
-

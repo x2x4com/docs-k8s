@@ -13,7 +13,6 @@
     "plugins": [
         "-lunr",
         "-search",
-        "-highlight",
         "-livereload",
         "gist",
         "multipart",
@@ -60,21 +59,6 @@
             "css": [
                 "prism-themes/themes/prism-base16-ateliersulphurpool.light.css"
             ]
-        },
-        "github": {
-            "url": "https://github.com/x2x4com/docs-k8s"
-        },
-        "github-buttons": {
-            "repo": "x2x4com/docs-k8s",
-            "types": [
-                "star"
-            ],
-            "size": "small"
-        },
-        "include-codeblock": {
-            "template": "ace",
-            "unindent": true,
-            "edit": true
         },
         "sharing": {
            "douban": false,
@@ -123,8 +107,18 @@
             "fade": false,
             "style": "flat"
         },
+        "github": {
+            "url": "https://github.com/x2x4com"
+        },
         "sitemap-general": {
             "prefix": "https://k8s.doc.x2x4.me"
+        },
+        "github-buttons": {
+            "repo": "x2x4com/docs-k8s",
+            "types": [
+                "star"
+            ],
+            "size": "small"
         }
     }
 }
